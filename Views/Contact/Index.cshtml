@@ -1,8 +1,8 @@
-﻿
+﻿@model List<Formhandling.Models.Contact>
 
-@model List<Formhandling.Models.Contact>
-
-@{ ViewBag.Title = "Home Page"; }
+@{
+    ViewBag.Title = "Home Page";
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +57,7 @@
             <div class="button-container">
                 <button id="validateBtn" type="submit">Submit</button>
             </div>
+
         </form>
     </div>
 
@@ -65,39 +66,41 @@
         <table id="dataTable" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Address</th>
                     <th>City</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-    <tr>
-        <td>@item.Name</td>
-        <td>@item.Email</td>
-        <td>@item.Phone</td>
-        <td>@item.Address</td>
-        <td>@item.City</td>
-    </tr>}
+                <tr>
+                    <td>@item.Id</td>
+
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Address</td>
+                    <td>@item.City</td>
+                    <td>
+                        <button class="btn-edit" onclick="editContact(@item.Id, '@item.Name', '@item.Email', '@item.Phone','@item.Address','@item.City')">Edit</button>
+                        <button class="btn-delete" onclick="deleteContact(@item.Id)">Delete</button>
+
+                    </td>
+
+
+                </tr>
+
+                    
+                }
             </tbody>
         </table>
     </div>
+
+  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
