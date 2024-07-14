@@ -4,24 +4,25 @@
     ViewBag.Title = "Home Page";
 }
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form with DataTable</title>
-
-    <!-- Load jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Load DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
-    <!-- Load DataTables JavaScript -->
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-
-    <!-- Optional: Load jQuery Validation Plugin -->
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+ @*Load jQuery*@ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ @*Load DataTables CSS*@ 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+ @*Load DataTables JavaScript*@ 
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+ @*Load jQuery Validation Plugin*@ 
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+ @*Load WowAlert CSS*@ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wowalert/1.0.1/wowalert.min.css">
+ @*Load WowAlert JavaScript*@ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wowalert/1.0.1/wowalert.min.js"></script>
     <script src="~/Scripts/site.js"></script>
     <link rel="stylesheet" href="~/Content/Site.css">
 </head>
@@ -55,9 +56,8 @@
                 </select>
             </div>
             <div class="button-container">
-                <button id="validateBtn" type="submit">Submit</button>
+                <button onclick="wow_default_alert()" id="validateBtn" type="submit">Submit</button>
             </div>
-
         </form>
     </div>
 
@@ -78,29 +78,33 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@item.Id</td>
-
-                    <td>@item.Name</td>
-                    <td>@item.Email</td>
-                    <td>@item.Phone</td>
-                    <td>@item.Address</td>
-                    <td>@item.City</td>
-                    <td>
-                        <button class="btn-edit" onclick="editContact(@item.Id, '@item.Name', '@item.Email', '@item.Phone','@item.Address','@item.City')">Edit</button>
-                        <button class="btn-delete" onclick="deleteContact(@item.Id)">Delete</button>
-
-                    </td>
-
-
-                </tr>
-
-                    
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Address</td>
+                        <td>@item.City</td>
+                        <td>
+                            <button class="btn-edit" onclick="editContact(@item.Id, '@item.Name', '@item.Email', '@item.Phone', '@item.Address', '@item.City')">Edit</button>
+                            <button class="btn-delete" onclick="deleteContact(@item.Id)">Delete</button>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 
-  
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
